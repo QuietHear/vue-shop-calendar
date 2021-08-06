@@ -4,7 +4,7 @@
 */
 /*
  * @LastEditors: afei
- * @LastEditTime: 2021-08-06 14:24:48
+ * @LastEditTime: 2021-08-06 15:29:01
  */
 <template>
   <div :class="['vue-shop-calendar', cname]">
@@ -215,6 +215,11 @@ export default {
         lin = this.checkOneDay(new Date(`${linYear}-${linMonth}-1`));
       }
       this.$emit("changeValue", lin.valFullTime);
+      this.$nextTick(() => {
+        if (!this.value) {
+          this.chageTimeUp(this.checkOneDay(new Date(lin.valFullTime)));
+        }
+      });
     },
     // 更新改变时间后的数据
     chageTimeUp(obj) {
