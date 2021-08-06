@@ -4,5 +4,151 @@
 */
 /*
  * @LastEditors: afei
- * @LastEditTime: 2021-06-09 17:06:28
+ * @LastEditTime: 2021-08-06 14:25:00
  */
+.vue-shop-calendar {
+  .calendar-top {
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+    font-size      : 18px;
+    padding        : 0 10px;
+
+    .left-btn,
+    .right-btn {
+      cursor: pointer;
+
+      &:hover {
+        color: #db5618;
+      }
+    }
+
+    .middle-msg {
+      position: relative;
+
+      .other-msg {
+        width        : 14px;
+        height       : 14px;
+        line-height  : 14px;
+        position     : absolute;
+        right        : -30px;
+        top          : 6px;
+        opacity      : .5;
+        font-size    : 12px;
+        border       : 1px solid #000;
+        border-radius: 50%;
+        cursor       : pointer;
+      }
+    }
+  }
+
+  .calendar-title {
+    display    : flex;
+    padding    : 12px 0;
+    color      : #606266;
+    font-weight: 400;
+
+    >div {
+      text-align: center;
+      width     : calc(100% / 7);
+    }
+  }
+
+  .calendar-body {
+    display    : flex;
+    flex-wrap  : wrap;
+    border-top : 1px solid #ebeef5;
+    border-left: 1px solid #ebeef5;
+
+    >div {
+      width        : calc(100% / 7);
+      border-bottom: 1px solid #ebeef5;
+      border-right : 1px solid #ebeef5;
+      cursor       : pointer;
+      transition   : background-color .2s ease;
+      padding      : 8px;
+      height       : 85px;
+
+      &:hover {
+        background-color: #f2f8fe;
+      }
+
+      &.rest {
+        color: rgb(243, 159, 3);
+
+        &.not-in-month {
+          color: lighten(rgb(243, 159, 3), 30%);
+        }
+      }
+
+      &.not-in-month {
+        color: #c0c4cc;
+      }
+
+      &.is-today {
+        .item-tit {
+          &:before {
+            content      : '';
+            position     : absolute;
+            border-radius: 50%;
+            border       : 2px solid rgb(179, 21, 82);
+            width        : 20px;
+            height       : 18px;
+            left         : -4px;
+            top          : -3px;
+          }
+        }
+      }
+
+      &.samll-num {
+        .item-tit {
+          &:before {
+            left: -8px;
+          }
+        }
+      }
+
+      &.select {
+        background-color: #f2f8fe;
+      }
+
+      .item-tit {
+        font-size: 16px;
+        position : relative;
+
+        .special {
+          display       : inline-block;
+          margin-left   : 20px;
+          font-size     : 12px;
+          vertical-align: top;
+          color         : rgb(59, 51, 51);
+
+          &.else {
+            color: lightcoral;
+          }
+        }
+      }
+
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        border-radius   : 2px;
+        background-color: rgba(0, 0, 0, .3);
+      }
+
+      .item-div-content {
+        font-size : 12px;
+        margin-top: 5px;
+        height    : calc(100% - 23px);
+        overflow-y: auto;
+        color     : rgb(240, 9, 240);
+      }
+    }
+  }
+}
