@@ -1,6 +1,6 @@
 {
   "name": "vue-shop-calendar",
-  "description": "工作日历 vue组件",
+  "description": "工作日历 vue2版",
   "version": "1.1.1",
   "author": "aFei <1106728884@qq.com>",
   "license": "MIT",
@@ -11,10 +11,11 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "keywords": [
-    "Vue",
+    "Vue2",
     "calendar"
   ],
-  "homepage": "https://github.com/QuietHear/vue-shop-calendar",
+  "homepage": "https://github.com/QuietHear",
+  "repository": "https://github.com/QuietHear/vue-shop-calendar",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",

@@ -1,9 +1,17 @@
-# 工作日历 vue组件
+# 工作日历（vue2版）
+[**vue3版本**](https://github.com/QuietHear/vue-shop-calendar-plus '浏览') | ***vue2版本*** 
+
 
 ## 安装
 	npm i vue-shop-calendar
 
-### 1. 参数
+## 使用
+	import vueShopCalendar from 'vue-shop-calendar';
+	
+	Vue.use(vueShopCalendar);
+
+
+## 1. 参数
 * `v-model`：当前选择的日期，双向绑定-->String;非必传;默认当天
 * `cname`：自定义class-->String;非必传;默认''
 * `i18n`：开启国际化-->Boolean;非必传;默认false
@@ -48,7 +56,8 @@
 	第二个参数：当前面板的开始日期-结束日期
 >
 
-### 2. 插槽
+
+## 2. 插槽
 `<template slot="dateCell" slot-scope="{ date, data }"> {{date}}{{data}} </template>`
 >
 	// 默认情况下插槽会展示自定义节日的内容
