@@ -3,8 +3,8 @@
 * @Date: 2021-06-09 17:04:54
 */
 /*
- * @LastEditors: afei
- * @LastEditTime: 2021-08-06 15:29:01
+ * @LastEditors: aFei
+ * @LastEditTime: 2022-11-23 10:48:27
  */
 <template>
   <div :class="['vue-shop-calendar', cname]">
@@ -98,69 +98,69 @@ export default {
   name: "vueShopCalendar",
   model: {
     prop: "value",
-    event: "changeValue",
+    event: "changeValue"
   },
   props: {
     value: {
       type: String,
-      default: "",
+      default: ""
     },
     cname: {
       // 自定义class
       type: String,
-      default: "",
+      default: ""
     },
     i18n: {
       // 开启国际化
       type: Boolean,
-      default: false,
+      default: false
     },
     firstDay: {
       // 周首日，1-7
       type: Number,
-      default: 1,
+      default: 1
     },
     workDayKey: {
       // 法定加班日唯一key
       type: String,
-      default: "",
+      default: ""
     },
     workDay: {
       // 法定加班日
       type: Array,
       default: () => {
         return [];
-      },
+      }
     },
     restDayKey: {
       // 法定休息日唯一key
       type: String,
-      default: "",
+      default: ""
     },
     restDay: {
       // 法定休息日
       type: Array,
       default: () => {
         return [];
-      },
+      }
     },
     diyDayDayKey: {
       // 自定义节日日期唯一key
       type: String,
-      default: "day",
+      default: "day"
     },
     diyDaySketchKey: {
       // 自定义节日简述唯一key
       type: String,
-      default: "sketch",
+      default: "sketch"
     },
     diyDay: {
       // 自定义节日
       type: Array,
       default: () => {
         return [];
-      },
-    },
+      }
+    }
   },
   data() {
     return {
@@ -173,7 +173,7 @@ export default {
       // 今天
       today: {},
       // 选择的日期
-      selectDay: {},
+      selectDay: {}
     };
   },
   created() {
@@ -232,7 +232,7 @@ export default {
       this.selectDay = { ...obj };
       this.$emit("change", this.selectDay, {
         startTime: this.showDate[0].valFullTime,
-        endTime: this.showDate[this.maxLength - 1].valFullTime,
+        endTime: this.showDate[this.maxLength - 1].valFullTime
       });
     },
     // 判断某一年是否为闰年
@@ -249,29 +249,20 @@ export default {
     checkDays(year, month) {
       switch (month) {
         case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
           return 31;
         case 2:
           return this.checkLeapYear(year) ? 29 : 28;
-        case 3:
-          return 31;
         case 4:
-          return 30;
-        case 5:
-          return 31;
         case 6:
-          return 30;
-        case 7:
-          return 31;
-        case 8:
-          return 31;
         case 9:
-          return 30;
-        case 10:
-          return 31;
         case 11:
           return 30;
-        case 12:
-          return 31;
       }
     },
     // 将某一天输出为标准化对象格式
@@ -281,14 +272,13 @@ export default {
         month: time.getMonth() + 1,
         day: time.getDate(),
         weekDay: time.getDay(),
-        fullTime: `${time.getFullYear()}-${
-          time.getMonth() + 1
-        }-${time.getDate()}`,
+        fullTime: `${time.getFullYear()}-${time.getMonth() +
+          1}-${time.getDate()}`,
         valFullTime: `${time.getFullYear()}-${
           time.getMonth() + 1 > 9
             ? time.getMonth() + 1
             : "0" + (time.getMonth() + 1)
-        }-${time.getDate() > 9 ? time.getDate() : "0" + time.getDate()}`,
+        }-${time.getDate() > 9 ? time.getDate() : "0" + time.getDate()}`
       };
     },
     // 设置表头
@@ -317,7 +307,7 @@ export default {
       let beforeYear = year,
         beforeMonth = month - 1,
         beforeNum = this.showDate[0].weekDay - this.firstDay;
-      if (month - 1 === 0) {
+      if (beforeMonth === 0) {
         beforeYear = year - 1;
         beforeMonth = 12;
       }
@@ -327,9 +317,10 @@ export default {
       for (let i = 0; i < beforeNum; i++) {
         let obj = this.checkOneDay(
           new Date(
-            `${beforeYear}-${beforeMonth}-${
-              this.checkDays(beforeYear, beforeMonth) - i
-            }`
+            `${beforeYear}-${beforeMonth}-${this.checkDays(
+              beforeYear,
+              beforeMonth
+            ) - i}`
           )
         );
         obj.inMonth = false;
@@ -339,7 +330,7 @@ export default {
       let afterYear = year,
         afterMonth = month + 1,
         afterNum = this.maxLength - this.showDate.length;
-      if (month + 1 === 13) {
+      if (afterMonth === 13) {
         afterYear = year + 1;
         afterMonth = 1;
       }
@@ -350,13 +341,13 @@ export default {
         obj.inMonth = false;
         this.showDate.push(obj);
       }
-    },
+    }
   },
   watch: {
     value() {
       this.chageTimeUp(this.checkOneDay(new Date(this.value)));
-    },
-  },
+    }
+  }
 };
 </script>
 

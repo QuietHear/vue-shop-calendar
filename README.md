@@ -13,14 +13,18 @@
 
 ## 1. 参数
 * `v-model`：当前选择的日期，双向绑定-->String;非必传;默认当天
+
 * `cname`：自定义class-->String;非必传;默认''
+
 * `i18n`：开启国际化-->Boolean;非必传;默认false
+
 * `firstDay`：周首日-->Number;非必传;默认1
 >
 	1-7
 >
 
 * `workDayKey`：法定加班日唯一key-->String;非必传;默认''
+
 * `workDay`：法定加班日-->Array;非必传;默认[]
 >
 	// 日期的数据格式必须为：YYYY-MM-DD
@@ -31,6 +35,7 @@
 >
 
 * `restDayKey`：法定休息日唯一key-->String;非必传;默认''
+
 * `restDay`：法定休息日-->Array;非必传;默认[]
 >
 	// 日期的数据格式必须为：YYYY-MM-DD
@@ -41,7 +46,9 @@
 >
 
 * `diyDayDayKey`：自定义节日日期唯一key-->String;非必传;默认'day'
+
 * `diyDaySketchKey`：自定义节日简述唯一key-->String;非必传;默认'sketch'
+
 * `diyDay`：自定义节日-->Array;非必传;默认[]
 >
 	// 日期的数据格式必须为：YYYY-MM-DD
